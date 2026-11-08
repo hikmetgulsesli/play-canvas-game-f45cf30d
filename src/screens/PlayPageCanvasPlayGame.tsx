@@ -14,12 +14,23 @@ export interface PlayPageCanvasPlayGameProps {
   actions?: {
     "start-game-1"?: () => void;
   };
-
+  /** Current score (STATE_SCORE) rendered by SURF_SCORE_DISPLAY. */
+  score?: number;
+  /** Persisted high score (STATE_PERSISTED_HIGH_SCORE) rendered by SURF_SCORE_DISPLAY. */
+  highScore?: number;
+  /** Status text rendered by SURF_STATUS_MESSAGE. */
+  statusMessage?: string;
+  /** Current application phase (STATE_GAME_PHASE) shown in the footer metadata. */
+  phase?: string;
 }
 
 export type PlayPageCanvasPlayGameActionCallbacks = NonNullable<PlayPageCanvasPlayGameProps["actions"]>;
 
-export function PlayPageCanvasPlayGame({ actions }: PlayPageCanvasPlayGameProps) {
+export function PlayPageCanvasPlayGame({ actions, score, highScore, statusMessage, phase }: PlayPageCanvasPlayGameProps) {
+  const currentScore = score ?? 0;
+  const currentHighScore = highScore ?? 0;
+  const currentStatusMessage = statusMessage ?? "Game started";
+  const currentPhase = phase ?? "playing";
   return (
     <>
       {/* Top decorative chrome bar (strictly non-actionable) */}
@@ -69,16 +80,16 @@ export function PlayPageCanvasPlayGame({ actions }: PlayPageCanvasPlayGameProps)
             </div>
       
             {/* Surface: SURF_SCORE_DISPLAY */}
-            <div data-surface-id="SURF_SCORE_DISPLAY" className="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 shadow-xl flex flex-col justify-between" data-setfarm-element-ref="E000003" data-observable-refs="OBS_START_GAME_OBS_SCORE_VALUE">
+            <div data-surface-id="SURF_SCORE_DISPLAY" className="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 shadow-xl flex flex-col justify-between" data-setfarm-element-ref="E000003" data-observable-refs="OBS_START_GAME_OBS_SCORE_VALUE" data-value={String(currentScore)}>
               <div className="flex items-center justify-between">
                 <div className="text-xs font-semibold uppercase tracking-wider text-slate-400">Current Score</div>
                 <span className="text-xs px-2 py-0.5 rounded bg-cyan-950/60 text-cyan-300 border border-cyan-800/50">Active Round</span>
               </div>
               <div className="my-4">
-                <div className="text-5xl font-mono font-extrabold tracking-tight text-white">0</div>
+                <div className="text-5xl font-mono font-extrabold tracking-tight text-white" data-value={String(currentScore)}>{currentScore}</div>
               </div>
               <div className="text-xs text-slate-500 flex items-center justify-between border-t border-slate-800/80 pt-3">
-                <span>High Score: 0</span>
+                <span>High Score: {currentHighScore}</span>
                 <span>Storage: Synced</span>
               </div>
             </div>
@@ -90,9 +101,9 @@ export function PlayPageCanvasPlayGame({ actions }: PlayPageCanvasPlayGameProps)
                 <span className="text-xs px-2 py-0.5 rounded bg-emerald-950/60 text-emerald-300 border border-emerald-800/50">Live</span>
               </div>
               <div className="my-4">
-                <div className="flex items-center space-x-3 text-emerald-400" data-setfarm-element-ref="E000005" role="status" aria-label="Game started" data-observable-refs="OBS_START_GAME_OBS_STATUS_MESSAGE_TEXT">
+                <div className="flex items-center space-x-3 text-emerald-400" data-setfarm-element-ref="E000005" role="status" aria-label={currentStatusMessage} data-value={currentStatusMessage} data-observable-refs="OBS_START_GAME_OBS_STATUS_MESSAGE_TEXT">
                   <span className="h-3 w-3 rounded-full bg-emerald-400 animate-ping opacity-75"></span>
-                  <span className="text-xl font-bold tracking-wide">Game started</span>
+                  <span className="text-xl font-bold tracking-wide">{currentStatusMessage}</span>
                 </div>
               </div>
               <div className="text-xs text-slate-500 border-t border-slate-800/80 pt-3">
@@ -136,7 +147,7 @@ export function PlayPageCanvasPlayGame({ actions }: PlayPageCanvasPlayGameProps)
           <div>Canvas Play Game Engine © 2025</div>
           <div className="flex items-center space-x-4">
             <span>Route: /play</span>
-            <span>State: playing</span>
+            <span>State: {currentPhase}</span>
           </div>
         </footer>
     </>
