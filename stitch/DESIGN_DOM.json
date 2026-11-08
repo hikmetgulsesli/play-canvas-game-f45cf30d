@@ -1,0 +1,167 @@
+{
+  "generatedAt": "2026-11-08T13:09:01.089Z",
+  "screenCount": 1,
+  "screens": {
+    "8496e84409d94c909b62b4d159b8ad77": {
+      "screenId": "8496e84409d94c909b62b4d159b8ad77",
+      "materialSymbolsRequired": false,
+      "sections": [
+        {
+          "tag": "header",
+          "layout": "flex-row",
+          "classes": [
+            "border-b",
+            "border-slate-800/80",
+            "bg-slate-900/60",
+            "backdrop-blur",
+            "px-8",
+            "py-4",
+            "flex",
+            "items-center",
+            "justify-between"
+          ],
+          "childCount": 8
+        },
+        {
+          "tag": "main",
+          "layout": "flex-col",
+          "classes": [
+            "flex-1",
+            "max-w-7xl",
+            "w-full",
+            "mx-auto",
+            "p-6",
+            "md:p-8",
+            "flex",
+            "flex-col",
+            "space-y-6"
+          ],
+          "childCount": 26
+        },
+        {
+          "tag": "footer",
+          "layout": "flex-row",
+          "classes": [
+            "border-t",
+            "border-slate-800/80",
+            "bg-slate-900/40",
+            "px-8",
+            "py-3",
+            "flex",
+            "items-center",
+            "justify-between",
+            "text-xs",
+            "text-slate-500"
+          ],
+          "childCount": 2
+        }
+      ],
+      "buttons": [
+        {
+          "kind": "button",
+          "label": "Start Game",
+          "classes": [
+            "w-full",
+            "py-3.5",
+            "px-6",
+            "rounded-xl",
+            "bg-gradient-to-r",
+            "from-cyan-500",
+            "to-blue-600",
+            "hover:from-cyan-400",
+            "hover:to-blue-500",
+            "active:from-cyan-600",
+            "active:to-blue-700",
+            "text-white",
+            "font-semibold",
+            "text-base",
+            "shadow-lg",
+            "shadow-cyan-500/25",
+            "transition-all",
+            "duration-150",
+            "flex",
+            "items-center",
+            "justify-center",
+            "space-x-2",
+            "cursor-pointer",
+            "focus:outline-none",
+            "focus:ring-2",
+            "focus:ring-cyan-400",
+            "focus:ring-offset-2",
+            "focus:ring-offset-slate-900"
+          ],
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "Canvas Play Game Engine &copy; 2025",
+          "classes": [],
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "Route: /play State: playing",
+          "classes": [],
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        }
+      ],
+      "inputs": [],
+      "navLinks": [],
+      "cards": [],
+      "icons": [],
+      "images": [],
+      "cssVars": {},
+      "colorPalette": {},
+      "fonts": [],
+      "layoutHints": {
+        "gridCols": 1,
+        "flexDirection": "col",
+        "gap": "6"
+      },
+      "behaviorContract": [
+        {
+          "kind": "button",
+          "label": "Start Game",
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "Canvas Play Game Engine &copy; 2025",
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "Route: /play State: playing",
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        }
+      ],
+      "tabBar": [
+        {
+          "kind": "button",
+          "label": "Canvas Play Game Engine &copy; 2025",
+          "icon": null,
+          "active": false
+        },
+        {
+          "kind": "button",
+          "label": "Route: /play State: playing",
+          "icon": null,
+          "active": false
+        }
+      ],
+      "title": "Play Page - Canvas Play Game"
+    }
+  }
+}
